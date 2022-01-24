@@ -1,8 +1,21 @@
 /* eslint-disable react/jsx-filename-extension */
-/* eslint-disable react/react-in-jsx-scope */
+
 import './App.css';
+import React, { useEffect, useState } from 'react';
+import fichierDatas from './data/movies.json'
 
 function App() {
+
+//state datas
+
+const [datas, setdatas] = useState([])
+
+//import datas dans state via useeffect
+
+useEffect(() => {
+  setdatas(fichierDatas)
+ },[]);
+
   return (
     <div className="App">
       <table>
@@ -23,6 +36,7 @@ function App() {
             <td>with two columns</td>
             <td>with two columns</td>
           </tr>
+
         </tbody>
       </table>
     </div>
