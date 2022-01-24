@@ -2,7 +2,8 @@
 
 import './App.css';
 import React, { useEffect, useState } from 'react';
-import fichierDatas from './datas/movies.json'
+import fichierDatas from './datas/movies.json';
+import getUniqueValeur from './tools/getUniqueVal';
 
 function App() {
 
@@ -21,15 +22,12 @@ const [input_search_realisateur, setInput_search_realisateur] = useState("")
 //state input recherhe nationalite
 
 const [input_search_nationalite, setInput_search_nationalite] = useState("")
-console.log(input_search_nationalite)
+
 //simulation import datas dans state via useeffect
 
 useEffect(() => {
   setDatas(fichierDatas)
  },[]);
-
-
-
 
   return (
     <div className="App">
@@ -58,13 +56,9 @@ useEffect(() => {
             <td> </td>
             <td>
               <select name="nationalite" id="nationalite-select" value={input_search_nationalite} onChange={(e)=>setInput_search_nationalite(e.target.value)}>
-                <option value="">--Please choose an option--</option>
-                <option value="dog">Dog</option>
-                <option value="cat">Cat</option>
-                <option value="hamster">Hamster</option>
-                <option value="parrot">Parrot</option>
-                <option value="spider">Spider</option>
-                <option value="goldfish">Goldfish</option>
+                <option value="">--choisi une nationalié--</option>
+                {/*fonction pour recuper les valeurs unique des nationalité */  }
+                  {datas.map((item)=>item.nationalite).filter(getUniqueValeur).map((item,index)=>(<option key={index} value={item}>{item}</option>))}
               </select>
             </td>
             <td> </td>
