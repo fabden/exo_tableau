@@ -15,7 +15,7 @@ const [datas, setdatas] = useState([])
 useEffect(() => {
   setdatas(fichierDatas)
  },[]);
-
+console.log(datas)
   return (
     <div className="App">
       <table>
@@ -28,15 +28,16 @@ useEffect(() => {
             <th>Dernière diffusion</th>
           </tr>
         </thead>
-        <tbody>
-          <tr>
-            <td>The table body</td>
-            <td>with two columns</td>
-            <td>The table body</td>
-            <td>with two columns</td>
-            <td>with two columns</td>
-          </tr>
+        <tbody> 
 
+          {datas.map(item=> ( 
+               <tr>
+            <td>{item.nom}</td>
+            <td>{item.realisateur}</td>
+            <td>{item.annee_production}</td>
+            <td>{item.nationalite}</td>
+            <td>{item.derniere_diffusion}</td>
+          </tr>))}
         </tbody>
       </table>
     </div>
