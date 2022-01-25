@@ -77,11 +77,11 @@ useEffect(() => {
 
           {dataFiltered.map((item,index)=> ( 
           <tr key = {index}>
-            <td>{item.nom}</td>
-            <td>{item.realisateur}</td>
-            <td>{item.annee_production}</td>
-            <td>{item.nationalite}</td>
-            <td>{item.derniere_diffusion}</td>
+            <td className='td_20'>{item.nom}</td>
+            <td className='td_20'>{item.realisateur}</td>
+            <td className='centerelement'>{item.annee_production}</td>
+            <td className='centerelement'>{item.nationalite}</td>
+            <td className='centerelement'>{item.derniere_diffusion}</td>
           </tr>))}
 
         </tbody>

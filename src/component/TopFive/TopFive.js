@@ -3,6 +3,9 @@ import React from 'react';
 
 function TopFive() {
 
+  const handelclick =()=>{
+    alert('dfdfdfdfdf')
+  }
 
   return (
 
@@ -11,7 +14,7 @@ function TopFive() {
         textx descrition
       </div>
       <div className='item2'>
-        <button>top 5 film</button>
+        <button onClick={handelclick}>top 5 film</button>
       </div>
       <div className='item3'>
       <button>top 5 realisateur</button>
