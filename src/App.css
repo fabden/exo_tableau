@@ -1,7 +1,18 @@
 .App {
   display:flex;
+  flex-direction: column;
   justify-content: center;
-  margin-top: 5em;
   margin-bottom: 5em;
+  padding: 5em;
+}
+
+td{  
+  overflow-wrap:break-word ;
+  width: 20% ;
+  padding: 0.3em;
+}
+
+.centerelement{
+text-align: center;
 }
 

@@ -1,0 +1,28 @@
+.root{
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 2em;
+}
+
+.item1{
+flex:4;
+text-align: center;
+}
+.item2{
+flex:1;
+text-align: center;  
+}
+.item3{
+flex:1;
+text-align: center;
+}
+.item4{
+flex:1;
+text-align: center;  
+}
+
+button{
+    padding: 0.5em;
+    font-size: 1em;
+    background-color: darkgreen;
+}

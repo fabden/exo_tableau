@@ -4,6 +4,7 @@ import './App.css';
 import React, { useEffect, useState } from 'react';
 import fichierDatas from './datas/movies.json';
 import getUniqueValeur from './tools/getUniqueVal';
+import TopFive from './component/TopFive/TopFive';
 
 function App() {
 
@@ -31,7 +32,6 @@ const searchFilter = (film, realisateur, nationalite)=>{
 //je recupere les donnee filtré avec la constante dataFiltered
 const dataFiltered = searchFilter(input_search_films,input_search_realisateur,input_search_nationalite)
 
-
 //simulation import datas dans state via useeffect
 
 useEffect(() => {
@@ -39,9 +39,9 @@ useEffect(() => {
  },[]);
 
 
-
   return (
     <div className="App">
+      <TopFive></TopFive>
       <table>        
         <thead>          
           <tr>
@@ -54,25 +54,25 @@ useEffect(() => {
         </thead>
         <tbody>
           <tr>
-            <td>
+            <td className='centerelement'>
               <input type="text"   id="search_film"  placeholder="recherche Film"
                   name="search_film" value={input_search_films} onChange={(e)=>(setInput_search_films(e.target.value))}>
               </input>
             </td>
-            <td>
+            <td className='centerelement'>
               <input type="text"   id="search_realisateur"  placeholder="recherche realisateur"
                   name="search_realisateur" value={input_search_realisateur} onChange={(e)=>(setInput_search_realisateur(e.target.value))}>
               </input>
-            </td>
+            </td >
             <td> </td>
-            <td>
+            <td className='centerelement'>
               <select name="nationalite" id="nationalite-select" value={input_search_nationalite} onChange={(e)=>setInput_search_nationalite(e.target.value)}>
                 <option value="">--choisi une nationalié--</option>
                 {/*fonction pour recuper les valeurs unique des nationalité */  }
                   {dataFiltered.map((item)=>item.nationalite).filter(getUniqueValeur).map((item,index)=>(<option key={index} value={item}>{item}</option>))}
               </select>
             </td>
-            <td> </td>
+            <td className='centerelement'><button>up</button> </td>
           </tr>
 
           {dataFiltered.map((item,index)=> ( 
