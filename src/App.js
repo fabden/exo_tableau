@@ -23,26 +23,18 @@ const [input_search_realisateur, setInput_search_realisateur] = useState("")
 
 const [input_search_nationalite, setInput_search_nationalite] = useState("")
 
-//state datas filtré
-
-const [datasFiltre, setDatasdFiltre] = useState([])
 
 // fonction filtre generique pour les recherches 
 
-
 const searchFilter = (film, realisateur, nationalite)=>{
-
-console.log(realisateur);
-console.log(film);
- return  datas.filter((item)=>( item.nom.includes(film) || item.realisateur.includes(realisateur) || nationalite === item.nationalite))
+ return  datas.filter((item)=>( item.nom.includes(film) && item.realisateur.includes(realisateur) &&  item.nationalite.includes(nationalite) ))
 }
 
-console.log(searchFilter(input_search_films,input_search_realisateur,input_search_nationalite))
+const dataFiltered = searchFilter(input_search_films,input_search_realisateur,input_search_nationalite)
 //simulation import datas dans state via useeffect
 
 useEffect(() => {
   setDatas(fichierDatas);
-  setDatasdFiltre(fichierDatas);
  },[]);
 
 
@@ -76,13 +68,13 @@ useEffect(() => {
               <select name="nationalite" id="nationalite-select" value={input_search_nationalite} onChange={(e)=>setInput_search_nationalite(e.target.value)}>
                 <option value="">--choisi une nationalié--</option>
                 {/*fonction pour recuper les valeurs unique des nationalité */  }
-                  {datasFiltre.map((item)=>item.nationalite).filter(getUniqueValeur).map((item,index)=>(<option key={index} value={item}>{item}</option>))}
+                  {dataFiltered.map((item)=>item.nationalite).filter(getUniqueValeur).map((item,index)=>(<option key={index} value={item}>{item}</option>))}
               </select>
             </td>
             <td> </td>
           </tr>
 
-          {datasFiltre.map((item,index)=> ( 
+          {dataFiltered.map((item,index)=> ( 
           <tr key = {index}>
             <td>{item.nom}</td>
             <td>{item.realisateur}</td>
