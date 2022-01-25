@@ -23,14 +23,15 @@ const [input_search_realisateur, setInput_search_realisateur] = useState("")
 
 const [input_search_nationalite, setInput_search_nationalite] = useState("")
 
-
 // fonction filtre generique pour les recherches 
 
 const searchFilter = (film, realisateur, nationalite)=>{
- return  datas.filter((item)=>( item.nom.includes(film) && item.realisateur.includes(realisateur) &&  item.nationalite.includes(nationalite) ))
+ return  datas.filter((item)=>( item.nom.toUpperCase().includes(film.toUpperCase()) && item.realisateur.toUpperCase().includes(realisateur.toUpperCase()) &&  item.nationalite.toUpperCase().includes(nationalite.toUpperCase()) ))
 }
-
+//je recupere les donnee filtré avec la constante dataFiltered
 const dataFiltered = searchFilter(input_search_films,input_search_realisateur,input_search_nationalite)
+
+
 //simulation import datas dans state via useeffect
 
 useEffect(() => {
