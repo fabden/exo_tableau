@@ -1,0 +1,13 @@
+.td_20{  
+    overflow-wrap:break-word ;
+    width: 35% ;
+    padding: 0.3em;
+  }
+  
+  .centerelement{
+  text-align: center;
+  }
+  select{
+    width: 80%;
+  }
+  
