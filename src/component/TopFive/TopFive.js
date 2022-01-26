@@ -1,11 +1,15 @@
 import './TopFive.css'; 
-import React from 'react';
+import React, { useState } from 'react';
 
-function TopFive() {
+function TopFive({handelOpenModal}) {
 
-  const handelclick =()=>{
-    alert('dfdfdfdfdf')
-  }
+
+//state statistique film 
+
+const [statFilm, setStatFilm] = useState("")
+
+   
+
 
   return (
 
@@ -14,13 +18,13 @@ function TopFive() {
         textx descrition
       </div>
       <div className='item2'>
-        <button onClick={handelclick}>top 5 film</button>
+        <button onClick={()=>handelOpenModal()}>top 5 film</button>
       </div>
-      <div className='item3'>
-      <button>top 5 realisateur</button>
+      <div className='item3'>      
+      <button onClick={()=>handelOpenModal()}>top 5 realisateur</button>
       </div>
       <div className='item4'>
-      <button>top 5 pays</button>
+      <button onClick={()=>handelOpenModal()}>top 5 pays</button>
       </div>
     </div>
 

@@ -2,7 +2,7 @@ import React, {useState } from 'react';
 import getUniqueValeur from '../../tools/getUniqueVal';
 import './Tableau.css';
 
-function Tableau({datas}) {
+function Tableau({datas,handelOpenModal}) {
 
 
 //state input recherche nom films
@@ -23,7 +23,7 @@ const [input_search_nationalite, setInput_search_nationalite] = useState("")
 const searchFilter = (film, realisateur, nationalite)=>{
     return  datas.filter((item)=>( item.nom.toUpperCase().includes(film.toUpperCase()) && item.realisateur.toUpperCase().includes(realisateur.toUpperCase()) &&  item.nationalite.toUpperCase().includes(nationalite.toUpperCase()) ))
    }
-//je recupere les donnee filtré avec la constante dataFiltered
+//je recupere les donnees filtré en fonction des criteres
    const dataFiltered = searchFilter(input_search_films,input_search_realisateur,input_search_nationalite)
    
 
