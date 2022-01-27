@@ -21,15 +21,17 @@ function App() {
 
   const [openModal, setOpenModal] = useState(false);
   const [modalText, setModalText] = useState('');
+  const [category, setCategory] = useState('');
 
-  const handelModal = (modalText1) => {
+  const handelModal = (modalText1, vallcategory) => {
     setOpenModal(!openModal);
     setModalText(modalText1);
+    setCategory(vallcategory);
   };
 
   return (
     <div className="App">
-      {openModal && <Modal handelcloseModal={handelModal} msg={modalText} />}
+      {openModal && <Modal handelcloseModal={handelModal} msg={modalText} category={category} />}
       <TopFive handelOpenModal={handelModal} datas={datasAPI} />
       <Tableau datas={datasAPI} />
 

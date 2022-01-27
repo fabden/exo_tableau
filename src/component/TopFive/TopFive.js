@@ -62,7 +62,7 @@ function TopFive({ handelOpenModal, datas }) {
 
     <div className="root">
       <div className="description">
-        <p>Exercise pour at produciton</p>
+        <h1>Exercise pour BATEAM</h1>
       </div>
       <div className="topfive">
         <div className="topFiveTitre">
@@ -70,13 +70,13 @@ function TopFive({ handelOpenModal, datas }) {
         </div>
         <div className="topFivebutton">
           <div className="item1">
-            <button type="button" className="buttonTop5" onClick={() => handelOpenModal(top5Film(datas))}>Film</button>
+            <button type="button" className="buttonTop5" onClick={() => handelOpenModal(top5Film(datas), 'Film')}>Film</button>
           </div>
           <div className="item2">
-            <button type="button" className="buttonTop5" onClick={() => handelOpenModal(top5Realisateur(datas))}>Realisateur</button>
+            <button type="button" className="buttonTop5" onClick={() => handelOpenModal(top5Realisateur(datas), 'Realisateur')}>Realisateur</button>
           </div>
           <div className="item3">
-            <button type="button" className="buttonTop5" onClick={() => handelOpenModal(top5MeilleurRatio(datas))}>Pays</button>
+            <button type="button" className="buttonTop5" onClick={() => handelOpenModal(top5MeilleurRatio(datas), 'Pays')}>Pays</button>
           </div>
         </div>
       </div>

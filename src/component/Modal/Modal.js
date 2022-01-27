@@ -4,14 +4,14 @@
 import React from 'react';
 import './Modal.css';
 
-function Modal({ handelcloseModal, msg }) {
+function Modal({ handelcloseModal, msg, category }) {
   return (
     <div
       className="ModalBackground"
       onClick={() => handelcloseModal()}
     >
       <div className="ModalContainer">
-        <div className="ModalHeader">titre</div>
+        <div className="ModalHeader">Le top 5 des {category}</div>
         {msg.map((e,index) => (<div key={index} className="ModalBody">{e}</div>))}
         <div className="ModalFooter">footer</div>
       </div>

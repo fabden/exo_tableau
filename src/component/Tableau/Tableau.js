@@ -41,9 +41,11 @@ function Tableau({ datas, handelOpenModal }) {
         <tr>
           <td className="centerelement">
             <input
+              autoComplete="off"
+              className="inputTable"
               type="text"
               id="search_film"
-              placeholder="recherche Film"
+              placeholder="Recherche film"
               name="search_film"
               value={input_search_films}
               onChange={(e) => (setInput_search_films(e.target.value))}
@@ -51,9 +53,11 @@ function Tableau({ datas, handelOpenModal }) {
           </td>
           <td className="centerelement">
             <input
+              autoComplete="off"
+              className="inputTable"
               type="text"
               id="search_realisateur"
-              placeholder="recherche realisateur"
+              placeholder="Recherche realisateur"
               name="search_realisateur"
               value={input_search_realisateur}
               onChange={(e) => (setInput_search_realisateur(e.target.value))}
@@ -61,7 +65,7 @@ function Tableau({ datas, handelOpenModal }) {
           </td>
           <td> </td>
           <td className="centerelement">
-            <select name="nationalite" id="nationalite-select" value={input_search_nationalite} onChange={(e) => setInput_search_nationalite(e.target.value)}>
+            <select className="inputTable" name="nationalite" id="nationalite-select" value={input_search_nationalite} onChange={(e) => setInput_search_nationalite(e.target.value)}>
               <option value="">--choisi une nationalié--</option>
               {/* fonction pour recuper les valeurs unique des nationalité */ }
               {dataFiltered.map((item) => item.nationalite)
