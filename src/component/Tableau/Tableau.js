@@ -17,7 +17,11 @@ function Tableau({ datas, handelOpenModal }) {
 
   // fonction filtre generique pour les recherches
 
-  const searchFilter = (film, realisateur, nationalite) => datas.filter((item) => (item.nom.toUpperCase().includes(film.toUpperCase()) && item.realisateur.toUpperCase().includes(realisateur.toUpperCase()) && item.nationalite.toUpperCase().includes(nationalite.toUpperCase())));
+  const searchFilter = (film, realisateur, nationalite) => datas
+    .filter((item) => (item.nom.toUpperCase()
+      .includes(film.toUpperCase()) && item.realisateur.toUpperCase()
+      .includes(realisateur.toUpperCase()) && item.nationalite.toUpperCase()
+      .includes(nationalite.toUpperCase())));
   // je recupere les donnees filtré en fonction des criteres
   const dataFiltered = searchFilter(input_search_films, input_search_realisateur, input_search_nationalite);
 
@@ -60,11 +64,13 @@ function Tableau({ datas, handelOpenModal }) {
             <select name="nationalite" id="nationalite-select" value={input_search_nationalite} onChange={(e) => setInput_search_nationalite(e.target.value)}>
               <option value="">--choisi une nationalié--</option>
               {/* fonction pour recuper les valeurs unique des nationalité */ }
-              {dataFiltered.map((item) => item.nationalite).filter(getUniqueValeur).map((item, index) => (<option key={index} value={item}>{item}</option>))}
+              {dataFiltered.map((item) => item.nationalite)
+                .filter(getUniqueValeur)
+                .map((item, index) => (<option key={index} value={item}>{item}</option>))}
             </select>
           </td>
           <td className="centerelement">
-            <button>up</button>
+            <button type="button">up</button>
             {' '}
           </td>
         </tr>

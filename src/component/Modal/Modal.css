@@ -2,7 +2,7 @@
   .ModalBackground {
     width: 100vw;
     height: 100vh;
-    background-color: rgba(24, 20, 20, 0.747);
+    background-color: #224b4352;
     position: fixed;
     top: 0px;
     left: 0px;
@@ -15,7 +15,7 @@
   .ModalContainer {
     width: 500px;
     height: 200px;
-    border-radius: 10px;
+    border-radius: 5px;
     background-color: white;
     box-shadow: rgba(0, 0, 0, 0.596) 0px 5px 15px;
     display: flex;

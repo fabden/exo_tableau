@@ -5,7 +5,9 @@ import getUniqueValeur from '../../tools/getUniqueVal';
 function TopFive({ handelOpenModal, datas }) {
   // fonction top 5 film
   const top5Film = (data) => {
-    const triFromDif = data.sort((a, b) => (b.nb_diffusion - a.nb_diffusion)).slice(0, 5).map((e) => (e.nom));
+    const triFromDif = data.sort((a, b) => (b.nb_diffusion - a.nb_diffusion))
+      .slice(0, 5)
+      .map((e) => (e.nom));
     return triFromDif;
   };
 
@@ -31,8 +33,10 @@ function TopFive({ handelOpenModal, datas }) {
     }).flat().filter(getUniqueValeur);
 
     const addMoyendifusionRealisateur = uniqueUser.map((user) => {
-      const recupRealisaeurPM = data.filter((item) => item.realisateur.includes(user));
-      const AdditionMoyenneDiffusion = recupRealisaeurPM.reduce((a, b) => (a + b.moyenne_diffusion_par_an), 0);
+      const recupRealisaeurPM = data.filter((item) => item.realisateur
+        .includes(user));
+      const AdditionMoyenneDiffusion = recupRealisaeurPM
+        .reduce((a, b) => (a + b.moyenne_diffusion_par_an), 0);
       return {
         realisateur: user,
         additionMoyenne: AdditionMoyenneDiffusion,
@@ -46,8 +50,10 @@ function TopFive({ handelOpenModal, datas }) {
         moyenne,
       };
     });
-
-    const top5realisateurs = moyennefilmRealisateur.sort((a, b) => (b.moyenne - a.moyenne)).slice(0, 5).map((e) => (e.realisateur));
+    const top5realisateurs = moyennefilmRealisateur
+      .sort((a, b) => (b.moyenne - a.moyenne))
+      .slice(0, 5)
+      .map((e) => (e.realisateur));
 
     return top5realisateurs;
   };
@@ -55,17 +61,24 @@ function TopFive({ handelOpenModal, datas }) {
   return (
 
     <div className="root">
-      <div className="item1">
-        textx descrition
+      <div className="description">
+        <p>Exercise pour at produciton</p>
       </div>
-      <div className="item2">
-        <button onClick={() => handelOpenModal(top5Film(datas))}>top 5 film</button>
-      </div>
-      <div className="item3">
-        <button onClick={() => handelOpenModal(top5Realisateur(datas))}>top 5 realisateur</button>
-      </div>
-      <div className="item4">
-        <button onClick={() => handelOpenModal(top5MeilleurRatio(datas))}>top 5 pays</button>
+      <div className="topfive">
+        <div className="topFiveTitre">
+          <h2>TOP 5 </h2>
+        </div>
+        <div className="topFivebutton">
+          <div className="item1">
+            <button type="button" className="buttonTop5" onClick={() => handelOpenModal(top5Film(datas))}>Film</button>
+          </div>
+          <div className="item2">
+            <button type="button" className="buttonTop5" onClick={() => handelOpenModal(top5Realisateur(datas))}>Realisateur</button>
+          </div>
+          <div className="item3">
+            <button type="button" className="buttonTop5" onClick={() => handelOpenModal(top5MeilleurRatio(datas))}>Pays</button>
+          </div>
+        </div>
       </div>
     </div>
 
