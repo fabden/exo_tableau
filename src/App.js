@@ -3,37 +3,36 @@ import './App.css';
 import React, { useEffect, useState } from 'react';
 import fichierDatas from './datas/movies.json';
 import TopFive from './component/TopFive/TopFive';
-import Modal from '../src/component/Modal/Modal'
+import Modal from './component/Modal/Modal';
 import Tableau from './component/Tableau/Tableau';
 
 function App() {
+  // state datas
 
-//state datas
+  const [datasAPI, setDatasAPI] = useState([]);
 
-const [datasAPI, setDatasAPI] = useState([])
+  // simulation import datas dans state via useeffect
 
-//simulation import datas dans state via useeffect
+  useEffect(() => {
+    setDatasAPI(fichierDatas);
+  }, []);
 
-useEffect(() => {
-  setDatasAPI(fichierDatas);
- },[]);
+  // state pour modal
 
-//state pour modal 
+  const [openModal, setOpenModal] = useState(false);
+  const [modalText, setModalText] = useState('');
 
-const [openModal, setOpenModal] = useState(false)
-const [modalText, setModalText] = useState("toto")
-
-const handelModal = (modalText)=>{
-  setOpenModal(!openModal)
-}
-
+  const handelModal = (modalText1) => {
+    setOpenModal(!openModal);
+    setModalText(modalText1);
+  };
 
   return (
     <div className="App">
-     {openModal && <Modal handelcloseModal={handelModal} msg={modalText}></Modal>} 
-      <TopFive handelOpenModal={handelModal} datas={datasAPI}></TopFive>
-      <Tableau datas={datasAPI} ></Tableau>
-      
+      {openModal && <Modal handelcloseModal={handelModal} msg={modalText} />}
+      <TopFive handelOpenModal={handelModal} datas={datasAPI} />
+      <Tableau datas={datasAPI} />
+
     </div>
   );
 }
