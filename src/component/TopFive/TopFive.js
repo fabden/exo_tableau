@@ -1,5 +1,6 @@
 import './TopFive.css';
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import top5Films from '../../outils/Top5Film';
 import top5MeilleurRatio from '../../outils/Top5MeilleurRatio';
@@ -32,3 +33,8 @@ function TopFive({ handelOpenModal, datas }) {
   );
 }
 export default TopFive;
+
+TopFive.propTypes = {
+  handelOpenModal: PropTypes.bool.isRequired,
+  datas: PropTypes.arrayOf(PropTypes.object.isRequired).isRequired,
+};

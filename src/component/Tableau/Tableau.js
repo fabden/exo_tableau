@@ -1,25 +1,28 @@
 import React, { useState } from 'react';
+import { v4 as uuidv4 } from 'uuid';
+import PropTypes from 'prop-types';
 import getUniqueValeur from '../../outils/getUniqueVal';
 import recherchefiltre from '../../outils/recherchefiltre';
 import './Tableau.css';
 
-function Tableau({ datas, handelOpenModal }) {
+function Tableau({ datas }) {
   // state input recherche nom films
 
   const [inputSearchFilms, setinputSearchFilms] = useState('');
 
   // state input recherhe realisateurs
 
-  const [inputsearchrealisateur, setInputSearchRealisateur] = useState('');
+  const [inputSearchRealisateur, setInputSearchRealisateur] = useState('');
 
   // state input recherhe nationalite
 
   const [inputsearchnationalite, setInputSearchNationalite] = useState('');
 
   // je recupere les donnees filtré en fonction des criteres
+
   const dataFiltered = recherchefiltre(
     inputSearchFilms,
-    inputsearchrealisateur,
+    inputSearchRealisateur,
     inputsearchnationalite,
     datas,
   );
@@ -58,7 +61,7 @@ function Tableau({ datas, handelOpenModal }) {
               id="search_realisateur"
               placeholder="Recherche realisateur"
               name="search_realisateur"
-              value={inputsearchrealisateur}
+              value={inputSearchRealisateur}
               onChange={(e) => (setInputSearchRealisateur(e.target.value))}
             />
           </td>
@@ -69,7 +72,7 @@ function Tableau({ datas, handelOpenModal }) {
               {/* fonction pour recuper les valeurs unique des nationalité */ }
               {dataFiltered.map((item) => item.nationalite)
                 .filter(getUniqueValeur)
-                .map((item, index) => (<option key={index} value={item}>{item}</option>))}
+                .map((item) => (<option key={uuidv4()} value={item}>{item}</option>))}
             </select>
           </td>
           <td className="centerelement">
@@ -78,8 +81,8 @@ function Tableau({ datas, handelOpenModal }) {
           </td>
         </tr>
 
-        {dataFiltered.map((item, index) => (
-          <tr key={index}>
+        {dataFiltered.map((item) => (
+          <tr key={uuidv4()}>
             <td className="td_20">{item.nom}</td>
             <td className="td_20">{item.realisateur}</td>
             <td className="centerelement">{item.annee_production}</td>
@@ -95,3 +98,7 @@ function Tableau({ datas, handelOpenModal }) {
 }
 
 export default Tableau;
+
+Tableau.propTypes = {
+  datas: PropTypes.arrayOf(PropTypes.object).isRequired,
+};
