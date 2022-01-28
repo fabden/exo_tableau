@@ -1,30 +1,28 @@
 import React, { useState } from 'react';
 import getUniqueValeur from '../../outils/getUniqueVal';
+import recherchefiltre from '../../outils/recherchefiltre';
 import './Tableau.css';
 
 function Tableau({ datas, handelOpenModal }) {
   // state input recherche nom films
 
-  const [input_search_films, setInput_search_films] = useState('');
+  const [inputSearchFilms, setinputSearchFilms] = useState('');
 
   // state input recherhe realisateurs
 
-  const [input_search_realisateur, setInput_search_realisateur] = useState('');
+  const [inputsearchrealisateur, setInputSearchRealisateur] = useState('');
 
   // state input recherhe nationalite
 
-  const [input_search_nationalite, setInput_search_nationalite] = useState('');
-
-  // fonction filtre generique pour les recherches
-
-  const searchFilter = (film, realisateur, nationalite) => datas
-    .filter((item) => (item.nom.toUpperCase()
-      .includes(film.toUpperCase()) && item.realisateur.toUpperCase()
-      .includes(realisateur.toUpperCase()) && item.nationalite.toUpperCase()
-      .includes(nationalite.toUpperCase())));
+  const [inputsearchnationalite, setInputSearchNationalite] = useState('');
 
   // je recupere les donnees filtré en fonction des criteres
-  const dataFiltered = searchFilter(input_search_films, input_search_realisateur, input_search_nationalite);
+  const dataFiltered = recherchefiltre(
+    inputSearchFilms,
+    inputsearchrealisateur,
+    inputsearchnationalite,
+    datas,
+  );
 
   return (
 
@@ -48,8 +46,8 @@ function Tableau({ datas, handelOpenModal }) {
               id="search_film"
               placeholder="Recherche film"
               name="search_film"
-              value={input_search_films}
-              onChange={(e) => (setInput_search_films(e.target.value))}
+              value={inputSearchFilms}
+              onChange={(e) => (setinputSearchFilms(e.target.value))}
             />
           </td>
           <td className="centerelement">
@@ -60,13 +58,13 @@ function Tableau({ datas, handelOpenModal }) {
               id="search_realisateur"
               placeholder="Recherche realisateur"
               name="search_realisateur"
-              value={input_search_realisateur}
-              onChange={(e) => (setInput_search_realisateur(e.target.value))}
+              value={inputsearchrealisateur}
+              onChange={(e) => (setInputSearchRealisateur(e.target.value))}
             />
           </td>
-          <td> </td>
+          <td>{' '}</td>
           <td className="centerelement">
-            <select className="inputTable" name="nationalite" id="nationalite-select" value={input_search_nationalite} onChange={(e) => setInput_search_nationalite(e.target.value)}>
+            <select className="inputTable" name="nationalite" id="nationalite-select" value={inputsearchnationalite} onChange={(e) => setInputSearchNationalite(e.target.value)}>
               <option value="">--choisi une nationalié--</option>
               {/* fonction pour recuper les valeurs unique des nationalité */ }
               {dataFiltered.map((item) => item.nationalite)
@@ -75,7 +73,7 @@ function Tableau({ datas, handelOpenModal }) {
             </select>
           </td>
           <td className="centerelement">
-            <button type="button">up</button>
+
             {' '}
           </td>
         </tr>
