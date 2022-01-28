@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import getUniqueValeur from '../../tools/getUniqueVal';
+import getUniqueValeur from '../../outils/getUniqueVal';
 import './Tableau.css';
 
 function Tableau({ datas, handelOpenModal }) {
@@ -22,6 +22,7 @@ function Tableau({ datas, handelOpenModal }) {
       .includes(film.toUpperCase()) && item.realisateur.toUpperCase()
       .includes(realisateur.toUpperCase()) && item.nationalite.toUpperCase()
       .includes(nationalite.toUpperCase())));
+
   // je recupere les donnees filtré en fonction des criteres
   const dataFiltered = searchFilter(input_search_films, input_search_realisateur, input_search_nationalite);
 
@@ -30,8 +31,8 @@ function Tableau({ datas, handelOpenModal }) {
     <table>
       <thead>
         <tr>
-          <th>Nom du film</th>
-          <th>Réalisateur</th>
+          <th className="td_20">Nom du film</th>
+          <th className="td_20">Réalisateur</th>
           <th>Année de production</th>
           <th>Nationalité </th>
           <th>Dernière diffusion</th>

@@ -11,9 +11,11 @@ function Modal({ handelcloseModal, msg, category }) {
       onClick={() => handelcloseModal()}
     >
       <div className="ModalContainer">
-        <div className="ModalHeader">Le top 5 des {category}</div>
-        {msg.map((e,index) => (<div key={index} className="ModalBody">{e}</div>))}
-        <div className="ModalFooter">footer</div>
+        <h2 className="ModalHeader">
+          Le TOP 5 des {category}
+        </h2>
+        {msg.map((e, index) => (<h4 key={index} className="ModalBody">{e}</h4>))}
+
       </div>
     </div>
 

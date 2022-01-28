@@ -2,7 +2,7 @@
   .ModalBackground {
     width: 100vw;
     height: 100vh;
-    background-color: #173630a1;
+    background-color: #1f312eb4;
     position: fixed;
     top: 0px;
     left: 0px;
@@ -13,14 +13,19 @@
   }
   
   .ModalContainer {
-    width: 500px;
-    height: 200px;
     border-radius: 5px;
     background-color: white;
     box-shadow: rgba(0, 0, 0, 0.596) 0px 5px 15px;
     display: flex;
     flex-direction: column;
-    padding: 25px;
-    z-index: 101;
+    padding: 10px;    
+  }
+  .ModalHeader{
+    text-align: center;
+    color: #009879;
+  }
+  .ModalBody{
+    margin-bottom: 0.1em;
+    text-align: center;
   }
 
