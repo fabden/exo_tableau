@@ -14,8 +14,7 @@ function Modal({ handelcloseModal, msg, category }) {
     >
       <div className="ModalContainer">
         <h2 className="ModalHeader">
-          Le TOP 5 des
-          {category}
+          { `Le TOP 5 des  ${category}`}
         </h2>
         {msg.map((e) => (<h4 key={uuidv4()} className="ModalBody">{e}</h4>))}
 
@@ -28,7 +27,7 @@ function Modal({ handelcloseModal, msg, category }) {
 export default Modal;
 
 Modal.propTypes = {
-  handelcloseModal: PropTypes.bool.isRequired,
+  handelcloseModal: PropTypes.func.isRequired,
   msg: PropTypes.arrayOf(PropTypes.string).isRequired,
   category: PropTypes.string.isRequired,
 };

@@ -35,6 +35,6 @@ function TopFive({ handelOpenModal, datas }) {
 export default TopFive;
 
 TopFive.propTypes = {
-  handelOpenModal: PropTypes.bool.isRequired,
+  handelOpenModal: PropTypes.func.isRequired,
   datas: PropTypes.arrayOf(PropTypes.object.isRequired).isRequired,
 };

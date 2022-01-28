@@ -3,9 +3,14 @@ import { v4 as uuidv4 } from 'uuid';
 import PropTypes from 'prop-types';
 import getUniqueValeur from '../../outils/getUniqueVal';
 import recherchefiltre from '../../outils/recherchefiltre';
+import filterOrder from '../../outils/filterOrder';
 import './Tableau.css';
 
 function Tableau({ datas }) {
+  // state tri colone
+
+  const [tricolone, setTriColone] = useState('');
+
   // state input recherche nom films
 
   const [inputSearchFilms, setinputSearchFilms] = useState('');
@@ -26,8 +31,9 @@ function Tableau({ datas }) {
     inputsearchnationalite,
     datas,
   );
+  // je fais un tri sur les donnees par annees de production ou derniere diffusion
 
-  
+  const dataDisplay = filterOrder(tricolone, dataFiltered);
 
   return (
 
@@ -67,7 +73,10 @@ function Tableau({ datas }) {
               onChange={(e) => (setInputSearchRealisateur(e.target.value))}
             />
           </td>
-          <td>{' '}</td>
+          <td className="centerelement">
+            <button type="button" onClick={() => setTriColone('croissantAnneeProduction')}>v</button>
+            <button type="button" onClick={() => setTriColone('decroissantAnneeProduction')}><</button>
+          </td>
           <td className="centerelement">
             <select className="inputTable" name="nationalite" id="nationalite-select" value={inputsearchnationalite} onChange={(e) => setInputSearchNationalite(e.target.value)}>
               <option value="">--choisi une nationalié--</option>
@@ -78,12 +87,12 @@ function Tableau({ datas }) {
             </select>
           </td>
           <td className="centerelement">
-
-            {' '}
+            <button type="button" onClick={() => setTriColone('decroissantderniereDiffusion')}>top</button>
+            <button type="button" onClick={() => setTriColone('croissantderniereDiffusion')}>down </button>
           </td>
         </tr>
 
-        {dataFiltered.map((item) => (
+        {dataDisplay.map((item) => (
           <tr key={uuidv4()}>
             <td className="td_20">{item.nom}</td>
             <td className="td_20">{item.realisateur}</td>
