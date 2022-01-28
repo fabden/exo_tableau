@@ -27,6 +27,8 @@ function Tableau({ datas }) {
     datas,
   );
 
+  
+
   return (
 
     <table>
