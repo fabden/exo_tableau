@@ -7,7 +7,7 @@ import filterOrder from '../../outils/triColonne';
 import './Tableau.css';
 
 function Tableau({ datas }) {
-  // state tri colone
+  // state tri colonne
 
   const [tricolone, setTriColone] = useState('');
 
@@ -31,7 +31,7 @@ function Tableau({ datas }) {
     inputsearchnationalite,
     datas,
   );
-  // je fais un tri sur les donnees par annees de production ou derniere diffusion
+  // je fais un tri sur les donnees par années de production ou derniere diffusion
 
   const dataDisplay = filterOrder(tricolone, dataFiltered);
 

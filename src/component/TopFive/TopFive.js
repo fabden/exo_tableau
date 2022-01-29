@@ -1,10 +1,9 @@
 import './TopFive.css';
 import React from 'react';
 import PropTypes from 'prop-types';
-
-import top5Films from '../../outils/Top5Films';
-import top5MeilleurRatio from '../../outils/Top5MeilleurRatios';
-import top5Realisateur from '../../outils/Top5Realisateurs';
+import top5Films from '../../outils/top5Films';
+import top5MeilleurRatio from '../../outils/top5MeilleurRatios';
+import top5Realisateur from '../../outils/top5Realisateurs';
 
 function TopFive({ handelOpenModal, datas }) {
   return (

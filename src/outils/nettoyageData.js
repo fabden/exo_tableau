@@ -1,4 +1,4 @@
-// fonction de nettoyage
+// fonction de nettoyage recuprer les elements entre parenthese et les places au debut de la phrase
 
 export default function cleardata(datasBrut) {
   const clearData = datasBrut.map((e) => {

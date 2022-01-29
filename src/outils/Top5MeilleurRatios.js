@@ -1,4 +1,5 @@
-// fonction top 5  film meilleur ratio
+// Top 5 des films avec le meilleur ratio
+// “Nombre de diffusion en 1ère partie / Nombre de diffusion total”
 
 export default function top5MeilleurRatio(data) {
   const calRatio = data.map((e) => {

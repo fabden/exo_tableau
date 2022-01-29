@@ -1,6 +1,7 @@
 import getUniqueValeur from './getUniqueVal';
 
-// fonction top 5 des realisateurs avec la meilleur moyenne de diffusion
+// Top 5 des réalisateurs avec la meilleur moyenne de diffusion
+// (Somme des moyennes de diffusion par an du réalisateur / nombre de film)
 
 export default function top5Realisateur(data) {
   const uniqueUser = data.map((item) => {
