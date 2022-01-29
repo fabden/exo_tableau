@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import PropTypes from 'prop-types';
 import getUniqueValeur from '../../outils/getUniqueVal';
-import recherchefiltre from '../../outils/filtreRecherche';
+import recherchefiltre from '../../outils/RechercheFiltre';
 import filterOrder from '../../outils/triColonne';
 import './Tableau.css';
 
