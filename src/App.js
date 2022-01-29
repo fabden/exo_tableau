@@ -15,10 +15,11 @@ function App() {
   // import datas via api perso
 
   useEffect(() => {
-    axios.get('http://localhost:8080/api/trifilm')
+    axios.get('http://localhost:8080/api/exofilm')
       .then((recupDatasApi) => {
         setDatasAPI(nettoygeData(recupDatasApi.data));
-      });
+      })
+      .catch(() => { console.log('L\'api ne fonctionne pas '); });
   }, []);
 
   // state pour modal

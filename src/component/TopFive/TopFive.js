@@ -9,7 +9,7 @@ function TopFive({ handelOpenModal, datas }) {
   return (
     <div className="root">
       <div className="description">
-        <h1>Exercise pour BATEAM SOLUTION</h1>
+        <h1>BATEAM SOLUTION</h1>
       </div>
       <div className="topfive">
         <div className="topFiveTitre">
