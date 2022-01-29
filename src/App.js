@@ -5,33 +5,17 @@ import fichierDatas from './datas/movies.json';
 import TopFive from './component/TopFive/TopFive';
 import Modal from './component/Modal/Modal';
 import Tableau from './component/Tableau/Tableau';
+import nettygeData from './outils/nettoyageData';
 
 function App() {
   // state datas
 
   const [datasAPI, setDatasAPI] = useState([]);
 
-  // fonction de netoyage
-
-  const cleardata = (datasBrut) => {
-    const clearData = datasBrut.map((e) => {
-      const debutDecoupe = e.nom.indexOf('(') + 1;
-      const finDecoupe = e.nom.indexOf(')');
-      const motsDebut = e.nom.slice(debutDecoupe, finDecoupe);
-      if (e.nom.includes('(')) {
-        return { ...e, nom: `${motsDebut} `.concat(e.nom.substring(0, debutDecoupe - 1)) };
-      }
-
-      return e;
-    });
-
-    return clearData;
-  };
-
   // simulation import datas dans state via useeffect
 
   useEffect(() => {
-    setDatasAPI(cleardata(fichierDatas));
+    setDatasAPI(nettygeData(fichierDatas));
   }, []);
 
   // state pour modal

@@ -8,7 +8,7 @@ export default function top5Realisateur(data) {
     return diviseItem;
   }).flat().filter(getUniqueValeur);
 
-  const addMoyendifusionRealisateur = uniqueUser.map((user) => {
+  const addMoyendiffusionRealisateur = uniqueUser.map((user) => {
     const recupRealisaeurPM = data.filter((item) => item.realisateur
       .includes(user));
     const AdditionMoyenneDiffusion = recupRealisaeurPM
@@ -19,7 +19,7 @@ export default function top5Realisateur(data) {
     };
   });
 
-  const moyennefilmRealisateur = addMoyendifusionRealisateur.map((e) => {
+  const moyennefilmRealisateur = addMoyendiffusionRealisateur.map((e) => {
     const moyenne = e.additionMoyenne / data.length;
     return {
       realisateur: e.realisateur,

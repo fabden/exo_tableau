@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import PropTypes from 'prop-types';
 import getUniqueValeur from '../../outils/getUniqueVal';
-import recherchefiltre from '../../outils/recherchefiltre';
-import filterOrder from '../../outils/filterOrder';
+import recherchefiltre from '../../outils/filtreRecherche';
+import filterOrder from '../../outils/triColone';
 import './Tableau.css';
 
 function Tableau({ datas }) {
