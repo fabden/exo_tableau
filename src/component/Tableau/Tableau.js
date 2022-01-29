@@ -74,8 +74,8 @@ function Tableau({ datas }) {
             />
           </td>
           <td className="centerelement">
-            <button type="button" onClick={() => setTriColone('croissantAnneeProduction')}>v</button>
-            <button type="button" onClick={() => setTriColone('decroissantAnneeProduction')}><</button>
+            <button className="orderButton rotation90" type="button" onClick={() => setTriColone('croissantAnneeProduction')}>{'<'}</button>
+            <button className="orderButton rotation-90" type="button" onClick={() => setTriColone('decroissantAnneeProduction')}>{'<'}</button>
           </td>
           <td className="centerelement">
             <select className="inputTable" name="nationalite" id="nationalite-select" value={inputsearchnationalite} onChange={(e) => setInputSearchNationalite(e.target.value)}>
@@ -87,8 +87,9 @@ function Tableau({ datas }) {
             </select>
           </td>
           <td className="centerelement">
-            <button type="button" onClick={() => setTriColone('decroissantderniereDiffusion')}>top</button>
-            <button type="button" onClick={() => setTriColone('croissantderniereDiffusion')}>down </button>
+            <button className="orderButton rotation90" type="button" onClick={() => setTriColone('croissantderniereDiffusion')}>{'<'}</button>
+            <button className="orderButton rotation-90" type="button" onClick={() => setTriColone('decroissantderniereDiffusion')}>{'<'}</button>
+
           </td>
         </tr>
 

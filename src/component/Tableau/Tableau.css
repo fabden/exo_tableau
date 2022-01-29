@@ -47,6 +47,23 @@ table tbody tr:last-of-type {
   box-shadow: lightgreen;
   border-radius: 2px;
   }
-
+.orderButton{  
+  appearance: none;
+  margin: 10px;
+  width: 35px;
+  height: 35px;
+  font-size: 1.2em;
+  background-color: #ffffff;
+  border: 1px solid #009879;
+  border-radius: 5px;
+  color: #009879;
+  cursor: pointer;
+}
+.rotation-90{
+  transform: rotate(-90deg);
+}
+.rotation90{
+  transform: rotate(90deg);
+}
 
 
