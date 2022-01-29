@@ -18,7 +18,7 @@ app.use((req, res, next) => {
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-app.get('/api/exofilm', film.recupTousFilms);
+app.get('/apiTableau/film', film.recupTousFilms);
 
 // export
 module.exports = app;
