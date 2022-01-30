@@ -15,7 +15,7 @@ function App() {
   // import datas via api perso
 
   useEffect(() => {
-    axios.get('http://localhost:8080/apiTableau/film')
+    axios.get('https://fdennemont.fr/apiTableau/film')
       .then((recupDatasApi) => {
         setDatasAPI(nettoygeData(recupDatasApi.data));
       })
